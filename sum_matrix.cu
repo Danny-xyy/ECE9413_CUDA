@@ -19,3 +19,4 @@ void sumMatrix2DonCPU(float * MatA, float * MatB, float * MatC, int nx, int ny)
         a += nx;
     }
 }
+
