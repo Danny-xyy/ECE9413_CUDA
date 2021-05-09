@@ -20,3 +20,12 @@ void sumMatrix2DonCPU(float * MatA, float * MatB, float * MatC, int nx, int ny)
     }
 }
 
+__global__ void sumMatrix(float * MatA, float * MatB, float * MatC, int nx, int ny){
+    int ix = threadIdx.x + blockDim.x*blockIdx.x;
+    int iy = threadIdx.y + blockDim.y*blockIdx.y;
+    int idx = ix + iy * ny;
+    if (ix < nx && iy < ny){
+        MatC[idx] = MatA[idx] + MatB[idx];
+    }
+}
+
